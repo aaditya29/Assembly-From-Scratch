@@ -170,3 +170,30 @@ $Where$
 - `as` is invoked to assemble the hello.s assembly source file.
 - The assembler (as) processes the assembly code in hello.s and translates it into machine code and data.
 - The resulting output, which is an object file (hello.o), contains the assembled code and data that can be further processed (e.g., linked with other object files) to create an executable program.
+
+### Learning About Supervisor Calls
+
+A supervisor call, often abbreviated as "syscall" (system call), is a mechanism used by programs to request services from the operating system (OS) kernel. It allows user-level processes to access privileged resources or perform operations that are outside their allowed set of instructions. Supervisor calls provide a controlled interface between user space and kernel space in an operating system.
+To understand all the supervisor calls we can go on following link [Supervisor Calls](https://opensource.apple.com/source/xnu/xnu-1504.3.12/bsd/kern/syscalls.master)
+
+Now we write following commands:
+
+```Shell
+ld hello.o -o hello -l System -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _start -arch arm64
+```
+
+$Where$
+
+- `ld` is invoked to link the hello.o object file.
+- The linker (ld) links against the System library.
+- The system library root and SDK path are specified to locate necessary system headers and libraries.
+- The entry point of the program (`_start` symbol) is specified.
+- The resulting executable (hello) will be compiled for the ARM 64-bit architecture (arm64).
+
+After running this command, assuming all necessary symbols, dependencies, and libraries are resolved, we will have an executable file named `hello` that is compiled for the ARM 64-bit architecture on macOS, using the specified system library and SDK path. This executable can be run on compatible ARM-based macOS systems. The `_start` symbol will serve as the entry point for program execution. Note that specifying `_start` as the entry point is typically done for special cases like bootloaders, low-level system code, or specific assembly language programs where we need explicit control over the startup process.
+
+> And finally we will have output with following command:
+
+```Shell
+ ./hello
+```
