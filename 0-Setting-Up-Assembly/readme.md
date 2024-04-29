@@ -114,6 +114,8 @@ $Where$
 - `-e _main` specifies the entry point (or starting point) of the program. Here, \_main indicates that the program should start execution from the \_main function.
 - `-arch arm64` specifies the target architecture for which the executable will be built. In this case, arm64 refers to the ARM 64-bit architecture commonly used in Apple Silicon (M1) processors.
 
+After running this command, assuming all necessary symbols, dependencies, and libraries are resolved, you will have an executable file named hello that is compiled for the ARM 64-bit architecture on macOS, using the specified system library and SDK path.
+
 ## Step 3: Building `Hello.s` Assembly File
 
 Now we create a `Hello.s` assembly file
@@ -124,7 +126,7 @@ touch hello.s
 
 And install ARM Assembly Extension on VS Code.
 
-Now we code a Hello World Assembly Program
+> Now we code a Hello World Assembly Program:
 
 ```Assembly
 //
@@ -156,3 +158,15 @@ _terminate:
 
 helloworld: .ascii "Hello World\n"
 ```
+
+In similar fashion as described above, we will write following commands:
+
+```Shell
+as hello.s -o hello.o
+```
+
+$Where$
+
+- `as` is invoked to assemble the hello.s assembly source file.
+- The assembler (as) processes the assembly code in hello.s and translates it into machine code and data.
+- The resulting output, which is an object file (hello.o), contains the assembled code and data that can be further processed (e.g., linked with other object files) to create an executable program.
