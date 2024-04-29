@@ -44,4 +44,34 @@ And then compile
 gcc hello.c -o hello
 ```
 
-Where -o means that it's going to create an output file and that output file is going to be the same name of our executable so in this case it's going to be hello.
+Where -o means that it's going to create an output file and that output file is going to be the same name of our executable so in this case it's going to be hello.<br>
+Now we run it:
+
+```Shell
+./hello
+```
+
+Alternatively we can use the CLang too:
+
+```Shell
+clang hello.c -o hello
+ls
+./hello
+```
+
+Now we have the C compiler which can be clang or GCC and what it's going to do is actually compile our underline files hello.c and then it's going to do that compilation and then it's going to create what's known as an intermediate object file.
+
+We need to be able to link inbuilt system libraries together and that's where a Linker comes in place. The Linker is gonna take any libraries that we need to link them together so that when we're referencing any sort of global or external functions and it's going to build together and then we're going to have that outputted executable.<br>
+So if we didn't have this sort of linking step in between we wouldn't know where those system libraries are and we won't be able to use this sort of standard uh Linux output calls or Unix output calls.
+
+In order to generate that object file we will do following steps:
+
+```Shell
+clang hello.c -c -o hello.o
+```
+
+$WHERE$
+
+- `clang` is invoked to compile the hello.c source file.
+- The -c option tells clang to generate an object file (hello.o) from hello.c.
+- The -o hello.o option specifies that the output object file should be named hello.o.
