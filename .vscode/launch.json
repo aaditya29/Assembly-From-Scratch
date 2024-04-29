@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/adityamishra/Documents/assembly-from-basics/0-Setting-Up-Assembly/Hello-World-With-C",
+      "program": "/Users/adityamishra/Documents/assembly-from-basics/0-Setting-Up-Assembly/Hello-World-With-C/build/Debug/outDebug"
+    }
+  ]
+}
