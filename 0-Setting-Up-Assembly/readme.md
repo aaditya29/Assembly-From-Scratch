@@ -31,3 +31,17 @@ int main() {
 }
 
 ```
+
+If we want to compile this we can do this in multiple ways. If we want to use GCC then we can install that by doing
+
+```Shell
+brew install GCC
+```
+
+And then compile
+
+```Shell
+gcc hello.c -o hello
+```
+
+Where -o means that it's going to create an output file and that output file is going to be the same name of our executable so in this case it's going to be hello.
