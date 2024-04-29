@@ -2,7 +2,7 @@
 
 > Here we would create a hello world application in ARM assembly for Apple silicon.
 
-## Step 1:
+## Step 1: Command Line Tool Installation
 
 We're going to make sure that we have xcode or command line tools installed on our machine.
 
@@ -10,7 +10,7 @@ We're going to make sure that we have xcode or command line tools installed on o
 xcode-select --install
 ```
 
-## Step 2:
+## Step 2: Building `Hello.c` File
 
 Before we start writing some assembly code what we're going to do is create that exact same hello world application in C. The reason we're going to do it in C is because it's very close to the assembly and therefore the concepts that we're going to introduce as we write back code is going to be easier to translate if we understand what's happening in C first.
 
@@ -70,7 +70,7 @@ In order to generate that object file we will do following steps:
 clang hello.c -c -o hello.o
 ```
 
-$WHERE$
+$Where$
 
 - `clang` is invoked to compile the hello.c source file.
 - The `-c` option tells clang to generate an object file (hello.o) from hello.c.
@@ -113,3 +113,46 @@ $Where$
 - The `backticks` around the command indicate command substitution in the shell, meaning that the result of the command inside the backticks will be used as part of the `ld` command.
 - `-e _main` specifies the entry point (or starting point) of the program. Here, \_main indicates that the program should start execution from the \_main function.
 - `-arch arm64` specifies the target architecture for which the executable will be built. In this case, arm64 refers to the ARM 64-bit architecture commonly used in Apple Silicon (M1) processors.
+
+## Step 3: Building `Hello.s` Assembly File
+
+Now we create a `Hello.s` assembly file
+
+```Shell
+touch hello.s
+```
+
+And install ARM Assembly Extension on VS Code.
+
+Now we code a Hello World Assembly Program
+
+```Assembly
+//
+//hello world
+//
+
+.global _start
+.align 2
+
+
+//main
+
+_start:
+    b _printf
+    b _terminate //branch
+
+_printf:
+    mov X0, #1//stdout
+    adr X1, helloworld //address of hello world string
+    mov X2, #12 //length of hello world string
+    mov X16, #4 //write to stdout
+    svc 0//syscall
+
+
+_terminate:
+    mov X0, #0
+    mov X16, #1
+    svc 0//syscall
+
+helloworld: .ascii "Hello World\n"
+```
