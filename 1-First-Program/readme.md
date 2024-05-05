@@ -114,3 +114,19 @@ In ARM architecture, the `CPSR` (Current Program Status Register) and `SPSR` (Sa
     - Condition flags are updated based on the result of arithmetic and logical operations.
     - The processor mode bits indicate the current mode of operation (e.g., User mode for regular program execution, Supervisor mode for handling interrupts and exceptions).
     - CPSR is automatically saved to SPSR when an exception (e.g., IRQ, FIQ) occurs to preserve the previous execution state.
+
+#### SPSR (Saved Program Status Register):
+
+- **Purpose:** The SPSR is used to save the CPSR of the current execution mode when an exception (e.g., `IRQ`, `FIQ`) occurs. This allows the processor to return to the original execution state after handling the exception.
+- **Usage:**
+  - When an exception occurs, the processor automatically saves the CPSR of the current mode to the corresponding SPSR.
+  - After handling the exception, the SPSR is used to restore the original execution state (including condition flags and mode) before returning to normal program execution.
+
+#### Example Usage Scenario:
+
+1. **Exception Handling:**
+
+- When an interrupt (e.g., `IRQ`) occurs during normal program execution, the processor switches to the IRQ mode.
+- The `CPSR` of the current mode (e.g., User mode) is automatically saved into the corresponding SPSR_IRQ.
+- The CPSR is then updated to reflect the IRQ mode (e.g., with IRQ mode bit set).
+- After handling the interrupt, the processor restores the CPSR from SPSR_IRQ to return to the previous execution state (e.g., User mode) and resumes normal program execution.
