@@ -61,3 +61,17 @@ ARM architecture, like other CPU architectures, includes various types of regist
 - **Usage:**
   - Controls program flow by pointing to the next instruction to be fetched and executed.
   - Automatically incremented after fetching an instruction, unless modified explicitly (e.g., by branching instructions).
+
+3. **Stack Pointer (SP):**
+
+- **Purpose:** Points to the top of the stack.
+- **Usage:**
+  - Facilitates stack-based memory operations (e.g., pushing/popping values, function call management).
+  - Helps allocate and deallocate memory dynamically.
+
+4. **Link Register (LR):**
+
+- **Purpose:** Stores the return address when executing a subroutine (function).
+- **Usage:**
+  - Saves the address to return to after completing a function call.
+  - Automatically used by `BL` (branch with link) instruction to store the return address.
