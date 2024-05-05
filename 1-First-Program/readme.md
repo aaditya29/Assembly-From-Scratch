@@ -97,7 +97,7 @@ ARM architecture, like other CPU architectures, includes various types of regist
 
 In ARM architecture, the `CPSR` (Current Program Status Register) and `SPSR` (Saved Program Status Register) are special-purpose registers that store status flags and control bits related to program execution and exception handling. Here's an overview of these registers:
 
-### CPSR (Current Program Status Register):
+#### CPSR (Current Program Status Register):
 
 - **Purpose:** The CPSR is the primary status register in ARM processors, holding important flags and mode bits that reflect the current state of the processor during normal program execution.
 - **Key Contents:**
