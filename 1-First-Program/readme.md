@@ -96,3 +96,21 @@ ARM architecture, like other CPU architectures, includes various types of regist
 ### CPSR and SPSR Registers
 
 In ARM architecture, the `CPSR` (Current Program Status Register) and `SPSR` (Saved Program Status Register) are special-purpose registers that store status flags and control bits related to program execution and exception handling. Here's an overview of these registers:
+
+### CPSR (Current Program Status Register):
+
+- **Purpose:** The CPSR is the primary status register in ARM processors, holding important flags and mode bits that reflect the current state of the processor during normal program execution.
+- **Key Contents:**
+  - **Condition Flags:**
+    - `Zero Flag (Z)`: Set when the result of an operation is zero.
+    - `Negative Flag (N)`: Set when the result of an operation is negative.
+    - `Carry Flag (C)`: Used for carry-out or borrow in arithmetic operations.
+    - `Overflow Flag (V)`: Indicates signed overflow in arithmetic operations.
+  - **Processor Mode:**<br>
+    - Specifies the current execution mode (e.g., User, Supervisor, IRQ, FIQ).
+  - **Control Bits:**
+    - Various control bits for interrupts, endianess, and other processor configurations.
+  - **Usage:**
+    - Condition flags are updated based on the result of arithmetic and logical operations.
+    - The processor mode bits indicate the current mode of operation (e.g., User mode for regular program execution, Supervisor mode for handling interrupts and exceptions).
+    - CPSR is automatically saved to SPSR when an exception (e.g., IRQ, FIQ) occurs to preserve the previous execution state.
