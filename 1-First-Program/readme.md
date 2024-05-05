@@ -92,3 +92,7 @@ ARM architecture, like other CPU architectures, includes various types of regist
 - **Usage:**
   - Hold status information during exception handling or mode changes.
   - Manage processor modes and interrupts.
+
+### CPSR and SPSR Registers
+
+In ARM architecture, the `CPSR` (Current Program Status Register) and `SPSR` (Saved Program Status Register) are special-purpose registers that store status flags and control bits related to program execution and exception handling. Here's an overview of these registers:
