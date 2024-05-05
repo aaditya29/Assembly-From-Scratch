@@ -26,3 +26,17 @@ Registers are a fundamental component of computer architecture and are closely t
 - Assembly language instructions directly manipulate registers.
 - Registers are accessed using mnemonics corresponding to their names (e.g., `MOV AX, 10` moves the value **10** into the `AX` register).
 - Registers are used for arithmetic operations **(ADD, SUB, MUL, DIV)**, logical operations **(AND, OR, NOT, XOR)**, data movement **(MOV)**, and control flow **(JMP, CALL, RET)**.
+
+4. **Register Size and Architecture:**
+
+- Register sizes depend on the CPU architecture (e.g., 16-bit, 32-bit, 64-bit).
+- Modern processors have a mix of general-purpose and specialized registers optimized for performance.
+
+5. **Register Constraints:**
+
+- Limited number of registers necessitates efficient usage.
+- Registers are faster to access than memory, making them essential for performance-critical code.
+
+6. **Context Switching:**
+
+   Registers may need to be saved/restored during context switches (e.g., when switching between processes or threads) to preserve program state.
