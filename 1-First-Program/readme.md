@@ -73,5 +73,22 @@ ARM architecture, like other CPU architectures, includes various types of regist
 
 - **Purpose:** Stores the return address when executing a subroutine (function).
 - **Usage:**
+
   - Saves the address to return to after completing a function call.
   - Automatically used by `BL` (branch with link) instruction to store the return address.
+
+  5. **Status Registers:**
+
+- **Purpose:** Store status flags and control bits.
+- **Examples:** `CPSR` (Current Program Status Register) in ARM, `APSR` (Application Program Status Register) in ARMv7 and later.
+- **Usage:**
+  - Hold condition flags (e.g., zero flag, carry flag) that reflect the result of arithmetic/logical operations.
+  - Control execution modes and privilege levels.
+
+6. **Control Registers:**
+
+- **Purpose:** Control processor operation and configuration.
+- **Examples:** `SPSR` (Saved Program Status Register) in ARM.
+- **Usage:**
+  - Hold status information during exception handling or mode changes.
+  - Manage processor modes and interrupts.
