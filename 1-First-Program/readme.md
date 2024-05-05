@@ -40,3 +40,24 @@ Registers are a fundamental component of computer architecture and are closely t
 6. **Context Switching:**
 
    Registers may need to be saved/restored during context switches (e.g., when switching between processes or threads) to preserve program state.
+
+## Registers w.r.t. ARM Assembly Language
+
+ARM architecture, like other CPU architectures, includes various types of registers that play specific roles in assembly language programming. Here are the key types of registers in ARM assembly language along with their typical usage:
+
+1. **General-Purpose Registers:**
+
+- **Purpose:** Used for general data storage and arithmetic/logical operations.
+- **Examples:** `R0`, `R1`, `R2`, ..., `R15` (or `r0`, `r1`, `r2`, ..., `r15` in lowercase).
+- **Usage:**
+  - Store function arguments and return values.
+  - Hold intermediate values during computations.
+  - Used as loop counters and pointers.
+  - Source and destination operands for data movement **(MOV, ADD, SUB, etc.)**.
+
+2. **Program Counter (PC):**
+
+- **Purpose:** Holds the memory address of the current instruction being executed.
+- **Usage:**
+  - Controls program flow by pointing to the next instruction to be fetched and executed.
+  - Automatically incremented after fetching an instruction, unless modified explicitly (e.g., by branching instructions).
