@@ -135,7 +135,7 @@ In ARM architecture, the `CPSR` (Current Program Status Register) and `SPSR` (Sa
 
 > Here's an example of a simple ARM assembly program:
 
-```Assembly
+```assembly
 .syntax unified         @ Specify the syntax for ARM assembly
 
 .text                   @ Section containing executable instructions
@@ -152,3 +152,19 @@ _start:
 
 
 ```
+
+> Breaking down the structure and elements of this ARM assembly program:
+
+1. **Directives:**
+
+- `.syntax unified`: This directive specifies the syntax being used for ARM assembly. In this case, `unified` syntax is used, which supports both ARM and Thumb instructions.
+
+2. **Sections:**
+
+- `.text`: This section contains the executable instructions of the program.
+
+3. **Global Label:**
+
+- `.global _start`: Declares the label `_start` as the entry point of the program. The `.global` directive makes `_start` visible to the linker.
+
+4.
