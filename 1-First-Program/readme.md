@@ -77,7 +77,7 @@ ARM architecture, like other CPU architectures, includes various types of regist
   - Saves the address to return to after completing a function call.
   - Automatically used by `BL` (branch with link) instruction to store the return address.
 
-  5. **Status Registers:**
+5. **Status Registers:**
 
 - **Purpose:** Store status flags and control bits.
 - **Examples:** `CPSR` (Current Program Status Register) in ARM, `APSR` (Application Program Status Register) in ARMv7 and later.
