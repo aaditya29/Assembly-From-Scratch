@@ -167,4 +167,12 @@ _start:
 
 - `.global _start`: Declares the label `_start` as the entry point of the program. The `.global` directive makes `_start` visible to the linker.
 
-4.
+4. **Labels:**
+
+- `_start`: Labels mark locations in the code. `_start` is the entry point of the program.
+
+5. **Instructions:**
+
+- `mov r0, #1`: This instruction moves the immediate value 1 into register `r0`. In this example, 1 represents the system call number for exit.
+- `mov r7, #1`: This instruction moves the immediate value 1 into register `r7`. `r7` is commonly used to specify the type of system call.
+- `swi 0`: This instruction generates a software interrupt (swi) to invoke a system call. The immediate value 0 is used as the identifier for the exit system call.
