@@ -175,4 +175,13 @@ _start:
 
 - `mov r0, #1`: This instruction moves the immediate value 1 into register `r0`. In this example, 1 represents the system call number for exit.
 - `mov r7, #1`: This instruction moves the immediate value 1 into register `r7`. `r7` is commonly used to specify the type of system call.
-- `swi 0`: This instruction generates a software interrupt (swi) to invoke a system call. The immediate value 0 is used as the identifier for the exit system call.
+- `swi 0`: This instruction generates a software interrupt (swi) to invoke a system call. The immediate value 0 is used as the identifier for the `exit` system call.
+
+6. **System Calls:**
+
+- ARM Linux system calls typically use `r7` to identify the type of system call and `r0`, `r1`, `r2`, `r3`, etc., to pass arguments.
+- In this example, `r0` is set to 1 (for exit system call) and `r7` is set to 1 (indicating a system call). The `swi 0` instruction triggers the exit system call to terminate the program.
+
+7. **Section .data:**
+
+- The `.data` section (optional) is used for declaring initialized data such as variables or constants.
