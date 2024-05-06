@@ -130,3 +130,25 @@ In ARM architecture, the `CPSR` (Current Program Status Register) and `SPSR` (Sa
 - The `CPSR` of the current mode (e.g., User mode) is automatically saved into the corresponding SPSR_IRQ.
 - The CPSR is then updated to reflect the IRQ mode (e.g., with IRQ mode bit set).
 - After handling the interrupt, the processor restores the CPSR from SPSR_IRQ to return to the previous execution state (e.g., User mode) and resumes normal program execution.
+
+## Basic Structure of Assembly Language Program
+
+> Here's an example of a simple ARM assembly program:
+
+```Assembly
+.syntax unified         @ Specify the syntax for ARM assembly
+
+.text                   @ Section containing executable instructions
+
+.global _start          @ Entry point for the program
+
+_start:
+    @ Your code starts here
+    mov r0, #1           @ Move the value 1 into register r0 (used for system call number)
+    mov r7, #1           @ Move the value 1 into register r7 (used for system call)
+    swi 0                @ Software interrupt to invoke the system call (exit)
+
+.data                   @ Data section (optional)
+
+
+```
