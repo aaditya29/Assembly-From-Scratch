@@ -35,3 +35,13 @@ Here's a breakdown of arithmetic operations and how they interact with CPSR flag
   SUB R3, R4, #20     ; R3 = R4 - 20
 
   ```
+
+### 3. MUL (Multiplication):
+
+- **Syntax**: `MUL Rd, Rn, Rm`
+- **Description:** Multiplies the values in `Rn` and `Rm` and stores the 32-bit result in `Rd`.
+- **CPSR Flags:** The CPSR flags are not directly affected by the MUL instruction.
+
+```armasm
+MUL R5, R6, R7      ; R5 = R6 * R7
+```
