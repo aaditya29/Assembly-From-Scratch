@@ -45,3 +45,9 @@ Here's a breakdown of arithmetic operations and how they interact with CPSR flag
 ```armasm
 MUL R5, R6, R7      ; R5 = R6 * R7
 ```
+
+## CPSR Flags Usage in Conditional Instructions
+
+The CPSR flags can be used in conditional instructions (`BEQ`, `BNE`, `BGT`, etc.) to control program flow based on the result of previous arithmetic or logical operations.
+
+#### For Example:
