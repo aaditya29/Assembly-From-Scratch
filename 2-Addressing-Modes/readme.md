@@ -20,3 +20,23 @@ MOV R2, R1       ; Move the value from R1 into R2
 ADD R3, R4, R5   ; Add contents of R4 and R5 and store result in R3
 
 ```
+
+### 3. Register Indirect Addressing
+
+Register indirect addressing involves using the value in a register as a pointer to the memory location of the operand.
+
+```armasm
+LDR R0, [R1]     ; Load the word from the memory location pointed to by R1 into R0
+STR R2, [R3]     ; Store the value in R2 into the memory location pointed to by R3
+
+```
+
+### 4. Pre-indexed Addressing
+
+Pre-indexed addressing is similar to register indirect addressing but includes an offset added to the base register before accessing the memory.
+
+```armasm
+LDR R0, [R1, #4]     ; Load the word from the memory location (R1 + 4) into R0
+STR R2, [R3, #-8]    ; Store the value in R2 into the memory location (R3 - 8)
+
+```
