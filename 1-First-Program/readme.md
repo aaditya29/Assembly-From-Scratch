@@ -135,7 +135,7 @@ In ARM architecture, the `CPSR` (Current Program Status Register) and `SPSR` (Sa
 
 > Here's an example of a simple ARM assembly program:
 
-```assembly
+```armasm
 .syntax unified         @ Specify the syntax for ARM assembly
 
 .text                   @ Section containing executable instructions
