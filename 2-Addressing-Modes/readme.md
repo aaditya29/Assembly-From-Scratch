@@ -6,7 +6,17 @@ In ARM Assembly language, addressing modes are the different ways in which the o
 
 Immediate addressing involves specifying a constant value directly in the instruction. The operand is a fixed value encoded within the instruction itself.
 
-```Assembly
+```armasm
 MOV R1, #10      ; Move the immediate value 10 into register R1
+
+```
+
+### 2. Register Addressing
+
+In register addressing, operands are held in registers. The effective address is the content of a register.
+
+```armasm
+MOV R2, R1       ; Move the value from R1 into R2
+ADD R3, R4, R5   ; Add contents of R4 and R5 and store result in R3
 
 ```
