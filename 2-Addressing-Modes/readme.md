@@ -40,3 +40,21 @@ LDR R0, [R1, #4]     ; Load the word from the memory location (R1 + 4) into R0
 STR R2, [R3, #-8]    ; Store the value in R2 into the memory location (R3 - 8)
 
 ```
+
+### 5. Post-indexed Addressing
+
+Post-indexed addressing involves accessing the memory first using a base register and an offset and then updating the base register.
+
+```armasm
+LDR R0, [R1], #4     ; Load the word from the memory location pointed to by R1 into R0, then increment R1 by 4
+STR R2, [R3], #-8    ; Store the value in R2 into the memory location pointed to by R3, then decrement R3 by 8
+
+```
+
+### 6. Scaled Register Addressing
+
+Scaled register addressing allows multiplication of the register value by a constant factor to access memory.
+
+```armasm
+LDR R0, [R1, R2, LSL #2]   ; Load the word from the memory location (R1 + R2*4) into R0
+```
