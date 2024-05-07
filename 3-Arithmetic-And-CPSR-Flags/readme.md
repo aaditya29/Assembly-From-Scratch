@@ -89,3 +89,5 @@ LessEqual:
     ; (CPSR flags: N=0, Z=0, C=1, V=0)
 
 ```
+
+In this example, `ADD` operation updates the `R3` register and indirectly updates the CPSR flags based on the result. Then, `CMP` compares `R3` with `20`, setting the appropriate CPSR flags (`N`, `Z`, `C`, `V`). Finally, conditional branches (`BGT` and `BLE`) use these flags to control the program flow.
