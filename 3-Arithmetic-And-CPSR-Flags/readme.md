@@ -51,3 +51,41 @@ MUL R5, R6, R7      ; R5 = R6 * R7
 The CPSR flags can be used in conditional instructions (`BEQ`, `BNE`, `BGT`, etc.) to control program flow based on the result of previous arithmetic or logical operations.
 
 #### For Example:
+
+- ### BEQ (Branch if Equal):
+
+```armasm
+CMP R1, R2          ; Compare R1 and R2 (updates CPSR flags)
+BEQ Label           ; Branch to 'Label' if R1 equals R2 (Z flag set)
+
+```
+
+- ### BNE (Branch if Not Equal):
+
+```armasm
+CMP R3, #0          ; Compare R3 with zero (updates CPSR flags)
+BNE NotZeroLabel    ; Branch to 'NotZeroLabel' if R3 is not zero (Z flag not set)
+
+```
+
+### Example: Using Arithmetic and CPSR Flags Together
+
+```armasm
+    MOV R1, #10       ; Initialize R1 with 10
+    MOV R2, #5        ; Initialize R2 with 5
+
+    ADD R3, R1, R2    ; R3 = R1 + R2 (R3 = 10 + 5 = 15)
+
+    CMP R3, #20       ; Compare R3 with 20
+    BGT Greater       ; Branch to 'Greater' if R3 > 20
+    BLE LessEqual     ; Branch to 'LessEqual' if R3 <= 20
+
+Greater:
+    ; Code for R3 > 20
+    ; (CPSR flags: N=0, Z=0, C=0, V=0)
+
+LessEqual:
+    ; Code for R3 <= 20
+    ; (CPSR flags: N=0, Z=0, C=1, V=0)
+
+```
