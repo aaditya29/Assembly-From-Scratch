@@ -46,3 +46,28 @@ After executing a comparator instruction, the condition flags are set as follows
 These condition flags can then be used in conditional execution of instructions or conditional branching.
 
 #### Example: Comparing which number is bigger between two numbers.
+
+```armasm
+    .text
+    .global main
+
+main:
+    MOV R0, #10       ; Set R0 to a sample number (e.g., 10)
+    MOV R1, #20       ; Set R1 to another sample number (e.g., 20)
+
+    CMP R0, R1        ; Compare R0 and R1
+    BGE greater       ; Branch if R0 >= R1 (Greater than or Equal)
+
+    @ If R0 < R1
+    MOV R2, #1        ; Load R2 with 1 (indicating R1 is greater)
+    B print_result    ; Branch to print_result
+
+greater:
+    @ If R0 >= R1
+    MOV R2, #0        ; Load R2 with 0 (indicating R0 is greater)
+
+print_result:
+    CMP R2, #0        ; Compare R2 with 0
+    BEQ r0
+
+```
