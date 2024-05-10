@@ -44,3 +44,5 @@ After executing a comparator instruction, the condition flags are set as follows
 - **V (Overflow):** Set if the operation caused an overflow or underflow.
 
 These condition flags can then be used in conditional execution of instructions or conditional branching.
+
+#### Example: Comparing which number is bigger between two numbers.
