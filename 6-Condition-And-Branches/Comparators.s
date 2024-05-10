@@ -34,3 +34,13 @@ end:
     mov r7, #1          ; Exit status code 1
     svc 0               ; Exit the program
 
+//The .data section defines two word values (num1 and num2) and two string constants (msg1 and msg2).
+//The .text section contains the main code.
+//The main label marks the entry point of the program.
+//The values of num1 and num2 are loaded into registers r1 and r2, respectively.
+//The cmp instruction compares the values in r1 and r2.
+//Based on the result of the comparison, the program branches to the appropriate label (greater_first or greater_second) using the bgt (branch if greater than) and blt (branch if less than) instructions.
+//If the numbers are equal, the program skips the printing and goes directly to the end label.
+//In the greater_first block, the address of msg1 is loaded into r0, and the printf function is called to print the message "First number is bigger".
+//In the greater_second block, the address of msg2 is loaded into r0, and the printf function is called to print the message "Second number is bigger".
+//After printing the appropriate message or skipping the printing if the numbers are equal, the program exits by setting the exit status code to 1 and executing the svc 0 (software interrupt) instruction.
