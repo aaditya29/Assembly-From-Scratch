@@ -42,3 +42,45 @@ In this example:
 
 - The `add_numbers` function adds the values in `R0` and `R1` and stores the result in `R0`.
 - `BX LR` is used to return from the function, branching to the address stored in the Link Register (`LR`).
+
+### Calling a Function
+
+Functions are called using the `BL` (Branch with Link) instruction, which saves the return address (address of the next instruction) into the Link Register (`LR`). This allows the function to return to the correct location after execution.
+
+```armasm
+    BL function_label    @ Call a function named 'function_label'
+
+```
+
+### Passing Parameters and Returning Values
+
+Parameters are typically passed to functions via specific registers (`R0`, `R1`, etc.), and return values are often stored in `R0` (conventionally used for function return values in ARM). Functions can modify other registers as needed, but they should adhere to the ARM calling conventions to ensure compatibility and interoperability with other code.
+
+### Function Prologue and Epilogue
+
+In more complex functions that modify multiple registers or use the stack, a function prologue is used to set up the stack frame by saving the necessary registers, and a function epilogue is used to restore the state before returning.
+
+### Example: Function with Parameters and Return Value
+
+```armasm
+    .text
+    .global main
+
+    @ Function to calculate the square of a number (input: R0, output: R0)
+calculate_square:
+    PUSH {LR}           @ Save Link Register (LR) on the stack
+    MOV R0, R0, LSL #1  @ Calculate square (R0 = R0 * R0)
+    POP {PC}            @ Restore LR and return from function
+
+main:
+    MOV R0, #5          @ Input number (e.g., 5)
+
+    BL calculate_square @ Call the calculate_square function
+
+    @ After returning from the function, R0 contains the squared value
+    @ Print the result (not shown, assume a system call)
+
+    MOV R0, #0          @ Exit status (0 for success)
+    SWI 0               @ Exit the program (system call)
+
+```
