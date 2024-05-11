@@ -71,3 +71,7 @@ print_result:
     BEQ r0
 
 ```
+
+## Loops With Branches
+
+In ARM Assembly language, loops can be implemented using conditional branching instructions. The most common way to create a loop is by using a combination of a conditional branch instruction and a branch instruction that jumps back to the beginning of the loop.
