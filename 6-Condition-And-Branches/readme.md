@@ -75,3 +75,44 @@ print_result:
 ## Loops With Branches
 
 In ARM Assembly language, loops can be implemented using conditional branching instructions. The most common way to create a loop is by using a combination of a conditional branch instruction and a branch instruction that jumps back to the beginning of the loop.
+
+```armasm
+.data
+count:  .word 10        ; Initialize the count to 10
+msg:    .asciz "Count: %d\n"
+
+    .text
+    .global main
+    .align 2
+
+main:
+    ldr r0, =count      ; Load the address of count into r0
+    ldr r1, [r0]        ; Load the value of count into r1 (r1 = 10)
+
+loop:
+    cmp r1, #0          ; Compare the count with 0
+    ble end_loop        ; Branch to end_loop if count is less than or equal to 0
+
+    ldr r0, =msg        ; Load the address of msg into r0
+    bl printf           ; Call printf to print the message with the count
+
+    sub r1, r1, #1      ; Decrement the count (r1 = r1 - 1)
+    b loop              ; Branch back to the beginning of the loop
+
+end_loop:
+    mov r7, #1          ; Exit status code 1
+    svc 0               ; Exit the program
+```
+
+//The .data section defines the initial value of the count (10) and a string constant for the message to be printed.
+//The .text section contains the main code.
+//The main label marks the entry point of the program.
+//The value of count is loaded into register r1.
+//The loop label marks the beginning of the loop.
+//The cmp instruction compares the value in r1 (the count) with 0.
+//The ble (branch if less than or equal to) instruction branches to the end_loop label if the count is less than or equal to 0, effectively ending the loop.
+//Inside the loop, the address of the message string msg is loaded into r0, and the printf function is called to print the message with the current count.
+//The sub instruction decrements the count by 1 (r1 = r1 - 1).
+//The b (branch) instruction jumps back to the loop label, repeating the loop.
+//When the count reaches 0 or becomes negative, the program exits the loop and goes to the end_loop label.
+//At the end_loop label, the program sets the exit status code to 1 and executes the svc 0 (software interrupt) instruction to exit the program.
