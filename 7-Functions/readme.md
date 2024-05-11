@@ -84,3 +84,8 @@ main:
     SWI 0               @ Exit the program (system call)
 
 ```
+
+In this example:
+
+- The `calculate_square` function calculates the square of the input number (`R0`) and stores the result back in `R0`.
+- The function uses the stack (`PUSH` and `POP`) to save and restore the Link Register (`LR`) before returning.
