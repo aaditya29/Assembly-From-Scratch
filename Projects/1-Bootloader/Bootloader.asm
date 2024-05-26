@@ -36,3 +36,20 @@ clearscreen:
 	mov sp, bp
 	pop bp
 	ret
+
+
+movecursor:
+	push bp
+	mov bp, sp
+	pusha
+
+	mov dx, [bp+4] //getting the argument from the stack. |bp| = 2, |arg| = 2
+	mov ah, 02h//setting cursor position
+	mov bh, 00h//page 0 - doesn't matter, we're not using double-buffering
+    
+	int 10h
+
+	popa
+	mov sp, bp
+	pop bp
+	ret
