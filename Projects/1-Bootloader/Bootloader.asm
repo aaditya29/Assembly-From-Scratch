@@ -62,3 +62,17 @@ print:
 	mov bh, 00h	 //page number, 0 again
 	mov bl, 00h//foreground color, irrelevant - in text mode
 	mov ah, 0Eh//print character to TTY
+
+.char:
+	mov al, [si] //getting the current char from our pointer position
+	add si, 1//keep incrementing si until we see a null char
+	or al, 0
+	je .return //end if the string is done
+	int 10h  //print the character if we're not done
+	jmp .char//keep looping
+ .return:
+	popa
+	mov sp, bp
+	pop bp
+	ret
+
