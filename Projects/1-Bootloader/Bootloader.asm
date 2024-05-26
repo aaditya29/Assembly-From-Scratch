@@ -76,3 +76,9 @@ print:
 	pop bp
 	ret
 
+msg:
+    db "Hello World! I am tiny Bootloader built in Assembly", 0//terminating by null
+
+    //added padding
+	times 510-($-$$) db 0
+	dw 0xAA55
