@@ -46,10 +46,19 @@ movecursor:
 	mov dx, [bp+4] //getting the argument from the stack. |bp| = 2, |arg| = 2
 	mov ah, 02h//setting cursor position
 	mov bh, 00h//page 0 - doesn't matter, we're not using double-buffering
-    
+
 	int 10h
 
 	popa
 	mov sp, bp
 	pop bp
 	ret
+
+print:
+	push bp
+	mov bp, sp
+	pusha
+	mov si, [bp+4]	//grab the pointer to the data
+	mov bh, 00h	 //page number, 0 again
+	mov bl, 00h//foreground color, irrelevant - in text mode
+	mov ah, 0Eh//print character to TTY
