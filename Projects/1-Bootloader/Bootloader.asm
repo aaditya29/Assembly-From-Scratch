@@ -16,5 +16,23 @@ push msg
 call print
 add sp, 2
 
-cli
-hlt
+cli//clearing the interrupt flag
+hlt//halting the processor stopping execution
+
+clearscreen:
+    push bp
+    mov bp, sp
+    pusha
+
+    mov ah, 07h//telling the BIOS to scroll down window
+    mov al, 00h// clear entire window
+    mov bh, 07h//puts white on blacl
+    mov cx, 00h//specifies top left of screen as (0,0)
+	mov dh, 18h//18h = 24 rows of chars
+	mov dl, 4fh//4fh = 79 cols of chars
+	int 10h//calls video interrupt
+
+	popa
+	mov sp, bp
+	pop bp
+	ret
