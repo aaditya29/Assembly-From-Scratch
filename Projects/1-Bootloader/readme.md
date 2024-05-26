@@ -88,7 +88,7 @@ Understanding bootloaders in the context of assembly language provides insight i
 
 Here's a simplified example of a bootloader written in x86 assembly language. This example will just print "Hello, World!" to the screen and then halt the system.
 
-```assembly
+```asm
 ; bootloader.asm
 ; A simple bootloader that prints "Hello, World!" and halts.
 
